@@ -10,16 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var buttonLight: UIButton!
+    var lightIsOn : Bool!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        lightIsOn = false
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func onTap(sender: AnyObject) {
+        if lightIsOn == true {
+            buttonLight.setImage(UIImage(named : "LightOff.jpg"), forState : UIControlState.Normal)
+            lightIsOn = false
+        } else {
+            buttonLight.setImage(UIImage(named : "LightOn.jpg"), forState : UIControlState.Normal)
+            lightIsOn = true
+        }
     }
-
-
 }
 
